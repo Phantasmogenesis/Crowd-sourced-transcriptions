@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<!--Currently using a shell of transcibe.html-->
 <html lang="en">
 <head>
     <title>SUNY Oswego Library Transcriptions</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/review.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/transribe.css') }}">
     <meta charset="UTF-8">
       <!--Working on scale-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,8 +51,8 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
 }
     </style>
 
-</head>
 
+</head>
 <body>
     <nav class="navbar">
         <ul>
@@ -61,14 +60,14 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
                 <a class="buttons" href="https://ww1.oswego.edu/"><img src="oswego-green.svg" class="icon" alt="SUNY Oswego Logo" ></a>
             </li>
             <li><a class="buttons" href=home.html>Home</a></li>
-            <li><a class="buttons" href=transcribe.html>Create a Transcription</a></li>
+            <li><a class="buttons" href=review.html>Review a Transcription</a></li>
             <li><a class="buttons" href=https://libraryguides.oswego.edu/fillmore>Historical Information</a></li>
         </ul>
     </nav>
 
     <div class="container">
         <div id="left">
-            <iframe src="{{jpg_link}}" id="doc" width=90% height=99% style="transform:rotate(0deg);resize:both"></iframe> <!-- This will be a random JPEG -->
+            <iframe src="{{jpg_link}}" id="doc" width=90% height=99% style="transform:rotate(0deg)"></iframe> <!-- This will be a random JPEG -->
             <br><button onclick="rotate(0)">Rotate Left</button>
             <button onclick="rotate(1)">Rotate Right</button>
             <script>
@@ -78,7 +77,7 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
                     var transform = document.getElementById("doc").getAttribute("style");
                     if(direction == 0) var degree = parseInt(transform.substring(transform.indexOf('(') + 1, transform.indexOf('d'))) - 90;
                     else var degree = parseInt(transform.substring(transform.indexOf('(') + 1, transform.indexOf('d'))) + 90;
-                    document.getElementById("doc").setAttribute("style", "transform:rotate(" + degree +"deg);resize:both");
+                    document.getElementById("doc").setAttribute("style", "transform:rotate(" + degree +"deg)");
 
                     // degree based %
                     if(degree % 180 == 0) width = 90, height = 99;
@@ -87,38 +86,20 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
                     document.getElementById("doc").setAttribute("height", height + '%');
                 }
             </script>
+
         </div>
+
 
         <div id="right">
-            <h4 style="margin:0.5%; margin-left:0%">Review this transcription.</h4>
+            <h4 style="margin:0.5%; margin-left:0%">Create transcription below.</h4>
             <label for="transcription"></label>
-            <textarea id="transcription-input" name="transcription-row" rows="20" cols="50" placeholder="Please write the transcription here" style="height:80%" readonly=true>{{txt_content}}</textarea>
-            <div id=review><!-- Rating system -->
-                <b><p style="margin:0%">Is this transcription accurate?</p></b>
-                <ul id="review" style="height:15%; margin-top:0%; display:inline-flex">
-                    <li style="margin-right: 5%;"><a href=home.html><input type="submit" value=" Yes ">&nbsp</a></li>
-                    <li style="margin-right: 5%;"><a href=home.html><input type="submit" value=" No ">&nbsp</a></li>
-                    <li><a id="edit" onclick="edit()">&nbsp&nbspEdit&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
-                </ul>
-            </div>
-            <div id=submit style="display:none"><!-- Submission system -->
-                <ul id="submit" style="height:15%; margin-top:3%">
-                    <li><a id="edit" class="two" target="_blank" href=tutorial.html>&nbspTutorial&nbsp</a></li>
+            <textarea id="transcription-input" name="transcription-row" rows="20" cols="50" placeholder="Please input transcription here" style="height:80%"></textarea>
+            <ul id="submit" style="height:15%; margin-top:3%">
+                    <li><a id="edit" target="_blank" href=tutorial.html>&nbspTutorial&nbsp</a></li>
                     <li><a href=home.html><input type="submit" value="Submit" style="margin-right:1%"></a></li>
-
-                </ul>
-            </div>
-            <script>
-                function edit() {
-                    //Make text box editable
-                    document.getElementById("transcription-input").removeAttribute("readonly");
-                    //Change bottom list
-                    document.getElementById("review").innerHTML = document.getElementById("submit").innerHTML;
-                }
-            </script>
+            </ul>
         </div>
-
-
+    </div>
     </div>
     <div class="colored">
   <p style="visibility: hidden;">
