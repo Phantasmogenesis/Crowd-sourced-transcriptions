@@ -1,4 +1,4 @@
-<html>
+<!-- <html>
   <head>
     <title>Flask Intro - login page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,4 +20,44 @@
       {% endif %}
     </div>
   </body>
-</html>
+</html> -->
+
+
+<html lang="en">
+<head>
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+      <!--Working on scale-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Millard Fillmore Transcriptions">
+    <meta name="keywords" content="Millard Fillmore">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#D4E8D4">
+    <!--Google Font API-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<form action="" method="post">
+  <h1 style="text-align:left">Admin Login</h1>
+
+  <div class="container">
+      <form action="" method="post">
+        <input type="text" placeholder="Username" name="username" value="{{
+          request.form.username }}">
+         <input type="password" placeholder="Password" name="password" value="{{
+          request.form.password }}">
+        <input class="btn btn-default" type="submit" value="Login">
+      </form>
+      {% if error %}
+        <p class="error"><strong>Error:</strong> {{ error }}
+      {% endif %}
+    <label>
+    </label>
+  </div>
+
+  <div class="container" style="background-color:#ffffff">
+  </div>
+</form>
