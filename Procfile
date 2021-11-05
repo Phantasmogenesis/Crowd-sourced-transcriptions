@@ -1,1 +1,1 @@
-web: gunicorn app:crowd-sourced
+web: gunicorn app:App
