@@ -9,14 +9,14 @@ home = Blueprint("home", __name__)
 @home.route("/", methods=['POST', 'GET'])
 
 def home_page():
-    if request.method == "POST":
-        user_input = request.form['user_input']
-        # # print(user_input)
-        transcription_functions.create_file(user_input)
-        # print(transcription_functions.jpg_file_id)
-        # print(transcription_functions.text_file_id)
-        # transcription_functions.write_to_file(user_input)
-        return redirect("/home")
+    # if request.method == "POST":
+    #     user_input = request.form['user_input']
+    #     # # print(user_input)
+    #     transcription_functions.create_file(user_input)
+    #     # print(transcription_functions.jpg_file_id)
+    #     # print(transcription_functions.text_file_id)
+    #     # transcription_functions.write_to_file(user_input)
+    #     return redirect("/home")
         
 
     
