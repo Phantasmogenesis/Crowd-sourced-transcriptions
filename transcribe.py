@@ -1,7 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-# from transc.py import get_random_jpg_id, download_jpg
 import transcription_functions
-# import drive_functions as df
 
 transcribe = Blueprint("transcribe", __name__)
 
