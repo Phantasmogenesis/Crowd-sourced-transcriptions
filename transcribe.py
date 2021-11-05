@@ -5,7 +5,7 @@ import transcription_functions
 
 transcribe = Blueprint("transcribe", __name__)
 
-@home.route("/transcribe", methods=['POST', 'GET'])
+@transcribe.route("/transcribe", methods=['POST', 'GET'])
 
 def transcribe_page():
     if request.method == "POST":
