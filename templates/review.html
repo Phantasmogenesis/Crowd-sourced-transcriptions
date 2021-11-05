@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<!--Currently using a shell of transcibe.html-->
+<html lang="en">
+<head>
+    <title>SUNY Oswego Library Transcriptions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/home.css') }}">
+    <meta charset="UTF-8">
+      <!--Working on scale-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Millard Fillmore Transcriptions">
+    <meta name="keywords" content="Millard Fillmore">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#D4E8D4">
+    <!--Google Font API-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li class="logo">
+                <a class="buttons" href="https://ww1.oswego.edu/"><img src="oswego-green.svg" class="icon" alt="SUNY Oswego Logo" ></a>
+            </li>
+            <li><a class="buttons" href=home.html>Home</a></li>
+            <li><a class="buttons" href=transcribe.html>Create a Transcription</a></li>
+            <li><a class="buttons" href=information.html>Historical Information</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div id="left">
+            <iframe src="{{jpg_link}}" title="Featured Document" width=85% height=99%></iframe> <!-- This will be a random JPEG -->
+        </div>
+
+        <div id="right">
+            <label for="transcription"></label>
+            <textarea id="transcription-input" name="transcription-row" rows="20" cols="50" placeholder="Please write the transcription here" style="height:99%">{{txt_content}}</textarea>
+            <form method="post">
+                Is this transcription accurate?
+                <input type="submit" name="Yes" value="Yes" style="margin-right:1%">
+                <input type="submit" name="No" value="No">
+            </form>
+
+                       
+        </div>
+        
+
+    </div>
+    <div class="colored">
+  <p style="visibility: hidden;"> 
+	Some invisible text 
+</p>
+</div>
+</body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        if ($(window).width() < 600) {
+        alert('Please use a device with a larger display for better site performance.');
+        }
+    </script>
+<footer id=footer>
+    <img class="icon" src="oswego-green.svg" alt="SUNY Oswego Logo">
+    <h1 style="font-size: 25px">Contact Information:</h1>
+    <p><a href="https://www.oswego.edu/library/archives-special-collections">SUNY Oswego Archives and Special Collections</a></p>
+</footer>
+
+</html>
