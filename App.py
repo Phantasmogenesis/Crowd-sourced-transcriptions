@@ -98,9 +98,11 @@ def admin():
 
 app.register_blueprint(home)
 
-@app.route("/transcribe")
-def transcribe_page():
-    return "<h1>transcribe!</h1>"
+# @app.route("/transcribe")
+# def transcribe_page():
+#     return "<h1>transcribe!</h1>"
+
+app.register_blueprint(transcribe)
 
 
 
