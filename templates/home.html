@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SUNY Oswego Library Transcriptions</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/home.css') }}">
+    <meta charset="UTF-8">
+      <!--Working on scale-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Millard Fillmore Transcriptions">
+    <meta name="keywords" content="Millard Fillmore">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#D4E8D4">
+    <!--Google Font API-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li class="logo">
+                <a class="buttons" href="https://ww1.oswego.edu/"><img src="{{url_for('static', filename='images/oswego-green.svg')}}" class="icon" alt="SUNY Oswego Logo" ></a>
+            </li>
+            <li><a class="buttons" href=transcribe.html>Create a Transcription</a></li>
+            <li><a class="buttons" href=review.html>Review a Transcription</a></li>
+            <li><a class="buttons" href=information.html>Historical Information</a></li>
+        </ul>
+    </nav>
+
+
+    <div class="hero-image">
+      <div class="hero-text">
+        <h1><a href="https://www.oswego.edu/library/archives-special-collections">SUNY Oswego Archives and Special Collections</a></h1>
+        <p>Crowd-Sourced Transcriptions</p>
+      </div>
+    </div>
+
+    <div class="container">
+        <div id="left">
+            <h1 style="text-align:center">Welcome !</h1>
+            <p>In conjunction with the Penfield Library Mission Statement, Archives and Special Collections contributes to enhancing the intellectual growth, creativity, and well-being of our community by creating opportunities for the public to engage with our historical collections. In particular, crowdsourcing transcriptions for the Millard Fillmore Papers collection provides the public with opportunities to read, understand, and contribute searchable text alongside the original written words with the outcome of a more open learning and research environment for all.
+</p>
+        </div>
+
+        <div id="right" >
+            <!--<p style="text-align:center"><strong>Image of the Day.</strong></p>-->
+            <iframe src="{{jpg_link}}" title="Featured Document" width=85% height=90%></iframe> <!-- This will be a random JPEG -->
+        </div>
+    </div>
+
+</body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        if ($(window).width() < 600) {
+        alert('Please use a device with a larger display for better site performance.');
+        }
+    </script>
+<footer>
+    <img class="icon" src="{{url_for('static', filename='images/oswego-green.svg')}}" alt="SUNY Oswego Logo">
+    <h1 style="font-size: 25px">Contact Information:</h1>
+    <p><a href="https://www.oswego.edu/library/archives-special-collections">SUNY Oswego Archives and Special Collections</a></p>
+    <form method="post">
+        <label for="transcription">Enter Transcription Here:</label>
+        <input type= "text" name="user_input" id="user_input">
+</footer>
+
+</html>
