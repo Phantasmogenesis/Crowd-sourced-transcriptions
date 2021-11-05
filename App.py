@@ -11,7 +11,7 @@ import flask_login
 
 
 from home import home
-# from transcribe import transcribe
+from transcribe import transcribe
 from review import review
 
 
