@@ -57,7 +57,7 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
     <nav class="navbar">
         <ul>
             <li class="logo">
-                <a class="buttons" href="https://ww1.oswego.edu/"><img src="oswego-green.svg" class="icon" alt="SUNY Oswego Logo" ></a>
+                <a class="buttons" href="https://ww1.oswego.edu/"><img src="{{url_for('static', filename='images/oswego-green.svg')}}" class="icon" alt="SUNY Oswego Logo" ></a>
             </li>
             <li><a class="buttons" href=home.html>Home</a></li>
             <li><a class="buttons" href=review.html>Review a Transcription</a></li>
@@ -115,7 +115,7 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
         }
     </script>
 <footer id=footer>
-    <img class="icon" src="oswego-green.svg" alt="SUNY Oswego Logo">
+    <img class="icon" src="{{url_for('static', filename='images/oswego-green.svg')}}" alt="SUNY Oswego Logo">
     <h1 style="font-size: 25px">Contact Information:</h1>
     <p><a href="https://www.oswego.edu/library/archives-special-collections">SUNY Oswego Archives and Special Collections</a></p>
     <a href="https://www.facebook.com/SUNYOswego/" class="fa fa-facebook"></a>
