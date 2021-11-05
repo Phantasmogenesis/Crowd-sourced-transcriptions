@@ -1,1 +1,1 @@
-web: gunicorn crowd-sourced:transcribe
+web: gunicorn app:crowd-sourced
