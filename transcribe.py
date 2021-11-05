@@ -15,7 +15,7 @@ def transcribe_page():
         # print(transcription_functions.jpg_file_id)
         # print(transcription_functions.text_file_id)
         # transcription_functions.write_to_file(user_input)
-        return redirect("/home")
+        return redirect(url_for("home.home_page"))
         
 
     
