@@ -1,9 +1,4 @@
-Link to deployed web app: https://crowd-sourced-transcriptions.herokuapp.com/
 
-Press the '.' key to open browser VS Code to edit files easily
-
-
-// Ignore below, mostly irrelevant
 
 
 export FLASK_DEBUG=1       <-- Currently
