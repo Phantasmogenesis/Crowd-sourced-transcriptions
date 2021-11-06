@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!--Currently using a shell of transcibe.html-->
+<html lang="en">
+<head>
+    <title>SUNY Oswego Library Transcriptions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/review.css') }}">
+    <meta charset="UTF-8">
+      <!--Working on scale-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Millard Fillmore Transcriptions">
+    <meta name="keywords" content="Millard Fillmore">
+    <meta name="author" content="">
+    <meta name="theme-color" content="#D4E8D4">
+    <!--Google Font API-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+    a.fa {
+  font-size: 25px;
+  width: 50px;
+  text-decoration: none;
+}
+
+
+a.fa:link {color:white;}
+
+a.fa:visited {color:white;}
+
+a.fa:hover {color:#ADD8E6; opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+    </style>
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li class="logo">
+                <a class="buttons" href="https://ww1.oswego.edu/"><img src="{{url_for('static', filename='images/oswego-green.svg')}}" class="icon" alt="SUNY Oswego Logo" ></a>
+            </li>
+            <li><a class="buttons" href={{url_for('home.home_page')}}>Home</a></li>
+            <li><a class="buttons" href={{url_for('transcribe.transcribe_page')}}>Create a Transcription</a></li>
+            <li><a class="buttons" href=https://libraryguides.oswego.edu/fillmore>Historical Information</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div id="left">
+            <iframe src="{{jpg_link}}" id="doc" width=90% height=99% style="transform:rotate(0deg);resize:both"></iframe> <!-- This will be a random JPEG -->
+            <br><button onclick="rotate(0)">Rotate Left</button>
+            <button onclick="rotate(1)">Rotate Right</button>
+            <script>
+                function rotate(direction) {
+                    var width, height;
+                    // Get degree
+                    var transform = document.getElementById("doc").getAttribute("style");
+                    if(direction == 0) var degree = parseInt(transform.substring(transform.indexOf('(') + 1, transform.indexOf('d'))) - 90;
+                    else var degree = parseInt(transform.substring(transform.indexOf('(') + 1, transform.indexOf('d'))) + 90;
+                    document.getElementById("doc").setAttribute("style", "transform:rotate(" + degree +"deg);resize:both");
+
+                    // degree based %
+                    if(degree % 180 == 0) width = 90, height = 99;
+                    else width = 80, height = 90;
+                    document.getElementById("doc").setAttribute("width", width + '%');
+                    document.getElementById("doc").setAttribute("height", height + '%');
+                }
+            </script>
+        </div>
+
+        <div id="right">
+            <h4 style="margin:0.5%; margin-left:0%">Review this transcription.</h4>
+            <label for="transcription"></label>
+            <textarea id="transcription-input" name="transcription-row" rows="20" cols="50" placeholder="Please write the transcription here" style="height:80%">{{txt_content}}</textarea>
+            <div id=review><!-- Rating system -->
+                <b><p style="margin:0%">Is this transcription accurate?</p></b>
+                <ul id="review" style="height:15%; margin-top:0%; display:inline-flex">
+                    <li style="margin-right: 5%;"><a href=home.html><input type="submit" value=" Yes ">&nbsp</a></li>
+                    <li style="margin-right: 5%;"><a href=home.html><input type="submit" value=" No ">&nbsp</a></li>
+                    <li><a id="edit" onclick="edit()">&nbsp&nbspEdit&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
+                </ul>
+            </div>
+            <div id=submit style="display:none"><!-- Submission system -->
+                <ul id="submit" style="height:15%; margin-top:3%">
+                    <li><a id="edit" class="two" target="_blank" href=tutorial.html>&nbspTutorial&nbsp</a></li>
+                    <li><a href=home.html><input type="submit" value="Submit" style="margin-right:1%"></a></li>
+
+                </ul>
+            </div>
+            <script>
+                function edit() {
+                    //Make text box editable
+                    document.getElementById("transcription-input").removeAttribute("readonly");
+                    //Change bottom list
+                    document.getElementById("review").innerHTML = document.getElementById("submit").innerHTML;
+                }
+            </script>
+        </div>
+
+
+    </div>
+    <div class="colored">
+  <p style="visibility: hidden;">
+	Some invisible text
+</p>
+</div>
+</body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        if ($(window).width() < 600) {
+        alert('Please use a device with a larger display for better site performance.');
+        }
+    </script>
+<footer id=footer>
+    <img class="icon" src="{{url_for('static', filename='images/oswego-green.svg')}}" alt="SUNY Oswego Logo">
+    <h1 style="font-size: 25px">Contact Information:</h1>
+    <p><a href="https://www.oswego.edu/library/archives-special-collections">SUNY Oswego Archives and Special Collections</a></p>
+    <a href="https://www.facebook.com/SUNYOswego/" class="fa fa-facebook"></a>
+    <a href="https://www.instagram.com/sunyoswego/" class="fa fa-instagram"></a>
+    <a href="https://twitter.com/sunyoswego" class="fa fa-twitter"></a>
+    <a href="https://www.youtube.com/user/sunyoswegovideo" class="fa fa-youtube"></a>
+</footer>
+
+</html>

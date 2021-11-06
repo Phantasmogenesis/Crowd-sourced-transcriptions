@@ -70,28 +70,20 @@ def get_transcription_txt():
     if not txt_list:
         print('No files found')
     else:
-        # txt_list = secrets.choice(txt_list)
-        # format to take file ID
         for item in txt_list:
             txt_list = item
         global txt_file_id
         txt_file_id = u'{0}'.format(txt_list['id'])
-        print(txt_file_id)
         read_txt_file(txt_file_id)
 
 
 def read_txt_file(file_id):
     results = service.files().export(
     fileId=file_id,
-    # supportsAllDrives=True,
     mimeType='text/plain').execute()
     global txt_file_content
 
-    # txt_file_content = results.decode("utf-8-sig").encode("utf-8")
     txt_file_content = results.decode("utf-8")
-
-    # txt_file_content = str(txt_file_content)
-    # txt_file_content = txt_file_content.rstrip(txt_file_content[-1])
 
 
 
@@ -105,63 +97,35 @@ def get_file_description(file_id):
     # CATCH EXCEPTION IF 'PROPERTIES' IS NULL OH JEEZ UR GONNA MESS THIS UP
     x = file['description']
     return(x)
-    # print(x['reviews'])
-
-
 
 
 # SEE LAST LINE, IMPLEMENT
-def increment_review_counter(file_id, jpg_id):
-    # print(get_file_description(file_id))
+def approve_transcription(file_id, jpg_id):
+    file = service.files().update(fileId=file_id,
+                            addParents=PENDING_APPROVAL_FOLDER_ID,
+                            removeParents=PENDING_REVIEW_FOLDER_ID,
+                            fields='id, description, parents', supportsAllDrives="true").execute()
+
+    file2 = service.files().update(fileId=jpg_id,
+                            addParents=PENDING_APPROVAL_FOLDER_ID,
+                            removeParents=PENDING_REVIEW_FOLDER_ID,
+                            fields='id, description, parents', supportsAllDrives="true").execute()
+
+
+def disapprove_transcription(file_id, jpg_id):
     result = service.files().update(
         fileId=file_id,
         body={
-        'description':str(int(get_file_description(file_id))+1)},
+        'description':0},
         supportsAllDrives=True
         ).execute()
-    print(get_file_description(file_id))
 
-    if int(get_file_description(file_id)) >= 2:
-        # print("yes")
-        file = service.files().update(fileId=file_id,
-                                addParents=PENDING_APPROVAL_FOLDER_ID,
-                                removeParents=PENDING_REVIEW_FOLDER_ID,
-                                fields='id, description, parents', supportsAllDrives="true").execute()
-        # print(file)
+    file = service.files().update(fileId=file_id,
+                            addParents=PENDING_REVIEW_FOLDER_ID,
+                            removeParents=PENDING_APPROVAL_FOLDER_ID,
+                            fields='id, description, parents', supportsAllDrives="true").execute()
 
-        file2 = service.files().update(fileId=jpg_id,
-                                addParents=PENDING_APPROVAL_FOLDER_ID,
-                                removeParents=PENDING_REVIEW_FOLDER_ID,
-                                fields='id, description, parents', supportsAllDrives="true").execute()
-        # print(file2)
-        # print(jpg_file_id)
-
-
-def decrement_review_counter(file_id, jpg_id):
-    # print(int(get_file_description(file_id)))
-    if int(get_file_description(file_id)) > -2:
-        # print(int(get_file_description(file_id)))
-        result = service.files().update(
-            fileId=file_id,
-            body={
-            'description':str((int(get_file_description(file_id))-1))},
-            supportsAllDrives=True
-            ).execute()
-    else:
-        pass
-
-
-# def move_files():
-
-
-# decrement_review_counter("1B45WQfyfr9ykaWhiDPZQYd-p-3Ua9U40Ad2VHlPDJxk")
-# increment_review_counter("1B45WQfyfr9ykaWhiDPZQYd-p-3Ua9U40Ad2VHlPDJxk")
-
-# decrement_review_counter("1B45WQfyfr9ykaWhiDPZQYd-p-3Ua9U40Ad2VHlPDJxk")
-
-
-# get_transcription_jpg()
-# get_transcription_txt()
-# print(read_txt_file(txt_file_id))
-
-# NEXT: wait
+    file2 = service.files().update(fileId=jpg_id,
+                            addParents=PENDING_REVIEW_FOLDER_ID,
+                            removeParents=PENDING_APPROVAL_FOLDER_ID,
+                            fields='id, description, parents', supportsAllDrives="true").execute()
