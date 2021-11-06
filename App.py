@@ -22,38 +22,38 @@ app.secret_key = '65a37542223cc0de46794d1d4970e060a06853824367f9a28539cc35b32610
 
 
 
-# login_manager = flask_login.LoginManager()
+login_manager = flask_login.LoginManager()
 
-# login_manager.init_app(app)
-
-
-# users = {'adombros': {'password': 'secret'}}
+login_manager.init_app(app)
 
 
-
-# class User(flask_login.UserMixin):
-#     pass
+users = {'adombros': {'password': 'secret'}}
 
 
-# @login_manager.user_loader
-# def user_loader(email):
-#     if email not in users:
-#         return
 
-#     user = User()
-#     user.id = email
-#     return user
+class User(flask_login.UserMixin):
+    pass
 
 
-# @login_manager.request_loader
-# def request_loader(request):
-#     email = request.form.get('email')
-#     if email not in users:
-#         return
+@login_manager.user_loader
+def user_loader(email):
+    if email not in users:
+        return
 
-#     user = User()
-#     user.id = email
-#     return user
+    user = User()
+    user.id = email
+    return user
+
+
+@login_manager.request_loader
+def request_loader(request):
+    email = request.form.get('email')
+    if email not in users:
+        return
+
+    user = User()
+    user.id = email
+    return user
 
 
 # @app.route('/login', methods=['GET', 'POST'])
@@ -76,14 +76,27 @@ app.secret_key = '65a37542223cc0de46794d1d4970e060a06853824367f9a28539cc35b32610
 
 #     return 'Bad login'
 
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'GET':
+        return render_template('login.html')
 
-# @app.route('/admin')
-# @flask_login.login_required
-# def admin():
-#     return 'Logged in as: ' + flask_login.current_user.id
+    # email = request.form['email']
+    # if request.form['password'] == users[email]['password']:
+    #     user = User()
+    #     user.id = email
+    #     flask_login.login_user(user)
+    #     return redirect(url_for('admin'))
+
+    # return 'Bad login'
 
 
-app.register_blueprint(login)
+@app.route('/admin')
+@flask_login.login_required
+def admin():
+    return 'Logged in as: ' + flask_login.current_user.id
+
+
 
 app.register_blueprint(admin)
 
