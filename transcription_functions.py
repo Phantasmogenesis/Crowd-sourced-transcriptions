@@ -19,7 +19,7 @@ COMPLETED_FOLDER_ID = '1e6WGPJjOCfndBGvP7KLKi6H7xB2gKYuc'
 PENDING_REVIEW_FOLDER_ID = '1uFleH0-Rznf_IpEZR8n3Czs0zau7od3V'
 OVERFLOW_REVIEW_FOLDER_ID = '1eQWxGiI7EovoENa4CwbSDuP-RTmTwLbT'
 BLANK_TRANSCRIPT_ID = '1O_937zukto10_pUEQQZkKtwvuIRHp7tg'
-JPG_FOLDER_ID = '1jfNrqneyBHqvvABZ319If-i7xq8ERT1k'
+JPG_FOLDER_ID = '10ABcW2n70qS28LcJXpbafjuv44AM1lAl'
 # SEE ABOVE
 
 jpg_file_id = None
@@ -73,7 +73,6 @@ def create_file(data):
 
         global text_file_id
         text_file_id = (u'{0}'.format(file['id']))
-        print(text_file_id)
         # print((u'{0}'.format(file['properties'])))
     
         # WRITE METADATA FIELDS FOR LIBRARIAN
@@ -149,4 +148,3 @@ def get_file_description(file_id):
 
 
 # CHANGE TO BE GET_FILE_DESCRIPTION
-print(get_file_description("1g0N-pbai3hNuVKol_vxGypGpdLEniVWCdEUky_8RZGQ"))
