@@ -9,7 +9,7 @@ transcribe = Blueprint("transcribe", __name__)
 
 def transcribe_page():
     if request.method == "POST":
-        user_input = request.form['user_input']
+        user_input = request.form['transcription-input']
         # # print(user_input)
         transcription_functions.create_file(user_input)
         # print(transcription_functions.jpg_file_id)
