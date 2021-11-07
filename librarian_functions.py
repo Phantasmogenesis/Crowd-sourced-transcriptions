@@ -44,7 +44,7 @@ docs_service = build('docs', 'v1', credentials=creds)
 
 # ON PAGE LOAD:
 def get_transcription():
-    results = service.files().list(pageSize = 1, q="'{0}' in parents and name contains '.JPG'".format(PENDING_REVIEW_FOLDER_ID), fields='files/webViewLink, nextPageToken, files(name, id)', driveId=SHARED_DRIVE_ID, corpora='drive', includeItemsFromAllDrives=True, supportsAllDrives=True).execute()
+    results = service.files().list(pageSize = 10, q="'{0}' in parents and name contains '.JPG'".format(PENDING_REVIEW_FOLDER_ID), fields='files/webViewLink, nextPageToken, files(name, id)', driveId=SHARED_DRIVE_ID, corpora='drive', includeItemsFromAllDrives=True, supportsAllDrives=True).execute()
     # print(results)
     jpg_list = results.get('files', [])
     if not jpg_list:
