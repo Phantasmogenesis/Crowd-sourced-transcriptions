@@ -44,7 +44,7 @@ docs_service = build('docs', 'v1', credentials=creds)
 
 # ON PAGE LOAD:
 def get_transcription():
-    results = service.files().list(pageSize = 10, q="'{0}' in parents and name contains '.JPG'".format(PENDING_REVIEW_FOLDER_ID), fields='files/webViewLink, nextPageToken, files(name, id)', driveId=SHARED_DRIVE_ID, corpora='drive', includeItemsFromAllDrives=True, supportsAllDrives=True).execute()
+    results = service.files().list(pageSize = 10, q="'{0}' in parents and name contains '.JPG'".format(PENDING_APPROVAL_FOLDER_ID), fields='files/webViewLink, nextPageToken, files(name, id)', driveId=SHARED_DRIVE_ID, corpora='drive', includeItemsFromAllDrives=True, supportsAllDrives=True).execute()
     # print(results)
     jpg_list = results.get('files', [])
     if not jpg_list:
@@ -65,7 +65,7 @@ def get_transcription():
 def get_transcription_txt():
     global txt_file_name
     txt_file_name = jpg_file_name.split('.JPG')[0] + ".txt"
-    results = service.files().list(pageSize=1, q="'{0}' in parents and name='{1}' and name contains '.txt'".format(PENDING_REVIEW_FOLDER_ID, txt_file_name), fields='files(id)', driveId=SHARED_DRIVE_ID, corpora='drive', includeItemsFromAllDrives=True, supportsAllDrives=True).execute()
+    results = service.files().list(pageSize=1, q="'{0}' in parents and name='{1}' and name contains '.txt'".format(PENDING_APPROVAL_FOLDER_ID, txt_file_name), fields='files(id)', driveId=SHARED_DRIVE_ID, corpora='drive', includeItemsFromAllDrives=True, supportsAllDrives=True).execute()
     txt_list = results.get('files')
     if not txt_list:
         print('No files found')
@@ -102,13 +102,13 @@ def get_file_description(file_id):
 # SEE LAST LINE, IMPLEMENT
 def approve_transcription(file_id, jpg_id):
     file = service.files().update(fileId=file_id,
-                            addParents=PENDING_APPROVAL_FOLDER_ID,
-                            removeParents=PENDING_REVIEW_FOLDER_ID,
+                            addParents=COMPLETED_FOLDER_ID,
+                            removeParents=PENDING_APPROVAL_FOLDER_ID,
                             fields='id, description, parents', supportsAllDrives="true").execute()
 
     file2 = service.files().update(fileId=jpg_id,
-                            addParents=PENDING_APPROVAL_FOLDER_ID,
-                            removeParents=PENDING_REVIEW_FOLDER_ID,
+                            addParents=COMPLETED_FOLDER_ID,
+                            removeParents=PENDING_APPROVAL_FOLDER_ID,
                             fields='id, description, parents', supportsAllDrives="true").execute()
 
 
