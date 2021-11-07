@@ -32,22 +32,18 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
 }
 
 .fa-facebook {
-  background: #3B5998;
   color: white;
 }
 
 .fa-twitter {
-  background: #55ACEE;
   color: white;
 }
 
 .fa-youtube {
-  background: #bb0000;
   color: white;
 }
 
 .fa-instagram {
-  background: #125688;
   color: white;
 }
     </style>
@@ -68,9 +64,9 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
 
     <div class="container">
         <div id="left">
+            <button onclick="rotate(0)">Rotate Left</button>
+            <button onclick="rotate(1)">Rotate Right</button><br>
             <iframe src="{{jpg_link}}" id="doc" width=90% height=99% style="transform:rotate(0deg);resize:both"></iframe> <!-- This will be a random JPEG -->
-            <br><button onclick="rotate(0)">Rotate Left</button>
-            <button onclick="rotate(1)">Rotate Right</button>
             <script>
                 function rotate(direction) {
                     var width, height;
