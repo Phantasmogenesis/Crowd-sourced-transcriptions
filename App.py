@@ -67,3 +67,8 @@ app.register_blueprint(home)
 app.register_blueprint(transcribe)
 
 app.register_blueprint(review)
+
+@app.route('/tutorial', methods=['GET', 'POST'])
+def tutorial():
+    if request.method == 'GET':
+        return render_template('tutorial.html')
