@@ -88,7 +88,7 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
 
         <div id="right">
             <h4 style="margin:0.5%; margin-left:0%">Create transcription below.</h4>
-            <li><a id="edit" target="_blank" href=tutorial.html>&nbspTutorial&nbsp</a></li>
+            <li><a id="edit" target="_blank" href={{url_for('tutorial.tutorial_page')}}>&nbspTutorial&nbsp</a></li>
             <label for="transcription"></label>
             <form style="height: 100%" method="POST">
               <textarea id="transcription-input" name="transcription-input" rows="20" cols="50" placeholder="Please input transcription here" style="height:80%"></textarea>
