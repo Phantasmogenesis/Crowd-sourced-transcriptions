@@ -63,6 +63,7 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
 
     <div class="container">
         <div id="left">
+            <li><a id="edit" target="_blank" href=tutorial.html>&nbspTutorial&nbsp</a></li>
             <button onclick="rotate(0)">Rotate Left</button>
             <button onclick="rotate(1)">Rotate Right</button><br>
             <iframe src="{{jpg_link}}" id="doc" width=90% height=99% style="transform:rotate(0deg)"></iframe> <!-- This will be a random JPEG -->
@@ -91,8 +92,7 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
             <label for="transcription"></label>
             <form style="height: 100%" method="POST">
               <textarea id="transcription-input" name="transcription-input" rows="20" cols="50" placeholder="Please input transcription here" style="height:80%"></textarea>
-              <ul id="submit" style="height:15%; margin-top:3%">
-                    <li><a id="edit" target="_blank" href=tutorial.html>&nbspTutorial&nbsp</a></li>
+              <ul id="submit" style="height:15%; margin-top:3%"> 
                     <li><input type="submit" name="Submit" value="Submit" style="margin-right:1%"></li>
               </ul>
             </form>
