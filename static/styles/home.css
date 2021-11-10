@@ -72,6 +72,15 @@ nav {
     width:35%;
 }
 
+#left2 {
+  width:60%;
+  margin-right: 4%;
+}
+
+#right2 {
+  width:35%;
+}
+
 #ImageOfDay {
   width:100%;
 }
