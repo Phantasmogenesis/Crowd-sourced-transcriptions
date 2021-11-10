@@ -15,7 +15,6 @@ def review_page():
             review_functions.decrement_review_counter(review_functions.txt_file_id, review_functions.jpg_file_id)
             return redirect(url_for("home.home_page"))
         elif request.form.get("Submit") == "Submit":
-            print("yes")
             user_input = request.form['transcription-input']
             review_functions.submit_edit(user_input)
             return redirect(url_for("home.home_page"))

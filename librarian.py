@@ -17,7 +17,6 @@ def librarian_page():
             librarian_functions.disapprove_transcription(librarian_functions.txt_file_id, librarian_functions.jpg_file_id)
             return redirect(url_for("home.home_page"))
         elif request.form.get("Submit") == "Submit":
-            print("yes")
             user_input = request.form['transcription-input']
             librarian_functions.submit_edit(user_input)
             return redirect(url_for("home.home_page"))
