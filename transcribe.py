@@ -9,9 +9,10 @@ transcribe = Blueprint("transcribe", __name__)
 
 def transcribe_page():
     if request.method == "POST":
-        user_input = request.form['transcription-input']
-        transcription_functions.create_file(user_input)
-        return redirect(url_for("home.home_page"))
+        if request.form.get("Submit") == "Submit":
+            user_input = request.form['transcription-input']
+            transcription_functions.create_file(user_input)
+            return redirect(url_for("home.home_page"))
         
 
     transcription_functions.get_random_jpg()
