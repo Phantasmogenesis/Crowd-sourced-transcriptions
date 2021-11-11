@@ -7,7 +7,8 @@ home = Blueprint("home", __name__)
 @home.route("/", methods=['POST', 'GET'])
 
 def home_page():
-    transcription_functions.get_random_jpg()
+    if request.method == "GET":
+        transcription_functions.get_random_jpg()
 
-    return render_template("home.html", jpg_link=transcription_functions.jpg_view_link)
+        return render_template("home.html", jpg_link=transcription_functions.jpg_view_link)
 
