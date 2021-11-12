@@ -84,7 +84,6 @@ input[type=submit] {
   cursor: pointer;
   border: none;
   appearance: auto;
-  background-color: -internal-light-dark(rgb(239, 239, 239), rgb(59, 59, 59));
   
 }
 
