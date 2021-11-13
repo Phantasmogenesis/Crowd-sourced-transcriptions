@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-import transcription_functions
+from transcription_functions import *
 
 home = Blueprint("home", __name__)
 
@@ -8,7 +8,11 @@ home = Blueprint("home", __name__)
 
 def home_page():
     if request.method == "GET":
-        transcription_functions.get_random_jpg()
+        jpg_info = get_random_jpg()
+        if jpg_info != None:
+            jpg_link = get_jpg_link(jpg_info)
+            return render_template("home.html", jpg_link=jpg_link)
+        else:
+            return render_template("home.html", jpg_link=None)
 
-        return render_template("home.html", jpg_link=transcription_functions.jpg_view_link)
 

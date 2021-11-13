@@ -91,6 +91,7 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
             <a id="edit" target="_blank" href={{url_for('tutorial.tutorial_page')}}><button style="font-size: 1.5vw;">&nbspTutorial&nbsp</button></a> </h4>
             <label for="transcription"></label>
             <form style="height: 100%" method="POST">
+              <input method="post" type="hidden" id="fileData" name="fileData" value="{{jpg_data}}" readonly/>
               <textarea id="transcription-input" name="transcription-input" rows="20" cols="50" placeholder="Please input transcription here" style="height:80%"></textarea>
               <ul id="submit" style="height:15%; margin-top:3%"> 
               <li><button><input type="submit" name="Submit"  value="Submit" style="margin-right:1%"></button></li>

@@ -34,7 +34,6 @@ def librarian_page():
 
     if request.method == "POST":
         jpg_info = request.form["fileData"]
-        print(jpg_info + "yes")
         if jpg_info != None:
             jpg_info = literal_eval(jpg_info)
             jpg_id = jpg_info["id"]
@@ -56,7 +55,7 @@ def librarian_page():
                     return redirect(url_for("home.home_page"))
             else:
                 return redirect(url_for("home.home_page"))
-        return "The page you were reviewing was already completed by someone else."
+        return redirect(url_for("home.home_page"))
 
     if request.method == "GET":
         jpg_data = get_transcription()
@@ -66,7 +65,5 @@ def librarian_page():
             txt_content = read_txt_file(get_transcription_txt(jpg_name))
             return render_template("librarian.html", jpg_link=jpg_view_link, jpg_data= jpg_data, txt_content=txt_content)
         else:
-            jpg_view_link = None
-            jpg_name = None
             txt_content = "There was nothing available to be reviewed. Please try again at another time or inform an administrator if the problem persists."
-            return render_template("librarian.html", jpg_link=url_for('static', filename='images/imageonline-co-textimage.jpg'), jpg_data= jpg_data, txt_content=txt_content)
+            return render_template("librarian.html", jpg_link=url_for('static', filename='images/imageonline-co-textimage.jpg'), jpg_data=None, txt_content=None)
