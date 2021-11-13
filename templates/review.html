@@ -97,8 +97,9 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
             <div id=review><!-- Rating system -->
                 <b><p style="margin:0%">Is this transcription accurate?</p></b>
                 <ul id="review" style="height:15%; margin-top:0%; display:inline-flex">
-                        <li style="margin-right: 5%;"><input type="submit" name="Yes" value="Yes">&nbsp</li>
-                        <li style="margin-right: 5%;"><input type="submit" name="No" value="No">&nbsp</li>
+                    <input method="post" type="hidden" id="fileData" name="fileData" value="{{jpg_data}}" readonly/>
+                    <li style="margin-right: 5%;"><input type="submit" name="Yes" value="Yes">&nbsp</li>
+                    <li style="margin-right: 5%;"><input type="submit" name="No" value="No">&nbsp</li>
                     <li><a id="edit" onclick="edit()">&nbsp&nbspEdit&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
                 </ul>
             </div>
@@ -106,8 +107,9 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
             <div id=submit style="display:none"><!-- Submission system -->
                 <ul id="submit" style="height:15%; margin-top:3%">
                     <form method="POST">
-                    <li><a id="edit" class="two" target="_blank" href={{url_for('tutorial.tutorial_page')}}>&nbspTutorial&nbsp</a></li>
-                    <li><input type="submit" name="Submit" value="Submit" style="margin-right:1%"></li>
+                        <input method="post" type="hidden" id="fileData" name="fileData" value="{{jpg_data}}" readonly/>
+                        <li><a id="edit" class="two" target="_blank" href={{url_for('tutorial.tutorial_page')}}>&nbspTutorial&nbsp</a></li>
+                        <li><input type="submit" name="Submit" value="Submit" style="margin-right:1%"></li>
                     </form>
                 </ul>
             </div>

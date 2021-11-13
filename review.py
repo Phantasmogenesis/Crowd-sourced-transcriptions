@@ -1,6 +1,7 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, flash
 from flask.helpers import url_for
-import review_functions
+from review_functions import *
+from ast import literal_eval
 
 review = Blueprint("review", __name__)
 
@@ -8,22 +9,40 @@ review = Blueprint("review", __name__)
 
 def review_page():
     if request.method == "POST":
-        if review_functions.checkFile:
+        jpg_info = request.form["fileData"]
+        print(jpg_info + "yes")
+        if jpg_info != None:
+            jpg_info = literal_eval(jpg_info)
+            jpg_id = jpg_info["id"]
+            jpg_name = jpg_info["name"]
+            txt_id = get_transcription_txt(jpg_name)
             if request.form.get("Yes") == "Yes":
-                review_functions.increment_review_counter(review_functions.txt_file_id, review_functions.jpg_file_id)
-                return redirect(url_for("home.home_page"))
+                if checkFile(jpg_id):
+                    increment_review_counter(txt_id, jpg_id)
+                    return redirect(url_for("home.home_page"))
             elif request.form.get("No") == "No":
-                review_functions.decrement_review_counter(review_functions.txt_file_id, review_functions.jpg_file_id)
-                return redirect(url_for("home.home_page"))
+                if checkFile(jpg_id):
+                    decrement_review_counter(txt_id, jpg_id)
+                    return redirect(url_for("home.home_page"))
             elif request.form.get("Submit") == "Submit":
-                user_input = request.form['transcription-input']
-                if user_input != "":
-                    review_functions.submit_edit(user_input)
+                if checkFile(jpg_id):
+                    user_input = request.form['transcription-input']
+                    if user_input != "":
+                        submit_edit(txt_id, jpg_id, jpg_name, user_input)
+                    return redirect(url_for("home.home_page"))
+            else:
                 return redirect(url_for("home.home_page"))
-        else:
-            return redirect(url_for("home.home_page"))
+        return "The page you were reviewing was already completed by someone else."
 
     if request.method == "GET":
-        review_functions.get_transcription()
-
-        return render_template("review.html", jpg_link=review_functions.jpg_view_link, txt_content=review_functions.txt_file_content)
+        jpg_data = get_transcription()
+        if jpg_data != None:
+            jpg_view_link = get_jpg_link(jpg_data)
+            jpg_name = get_jpg_name(jpg_data)
+            txt_content = read_txt_file(get_transcription_txt(jpg_name))
+            return render_template("review.html", jpg_link=jpg_view_link, jpg_data= jpg_data, txt_content=txt_content)
+        else:
+            jpg_view_link = None
+            jpg_name = None
+            txt_content = "There was nothing available to be reviewed. Please try again at another time or inform an administrator if the problem persists."
+            return render_template("review.html", jpg_link=url_for('static', filename='images/imageonline-co-textimage.jpg'), jpg_data= jpg_data, txt_content=txt_content)
