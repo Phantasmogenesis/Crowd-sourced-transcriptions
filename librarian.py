@@ -34,7 +34,7 @@ def librarian_page():
 
     if request.method == "POST":
         jpg_info = request.form["fileData"]
-        if jpg_info != None:
+        if jpg_info != "None" and jpg_info != None:
             jpg_info = literal_eval(jpg_info)
             jpg_id = jpg_info["id"]
             jpg_name = jpg_info["name"]
@@ -47,11 +47,15 @@ def librarian_page():
                 if checkFile(jpg_id):
                     disapprove_transcription(txt_id, jpg_id)
                     return redirect(url_for("home.home_page"))
+                else:
+                    return redirect(url_for("home.home_page"))
             elif request.form.get("Submit") == "Submit":
                 if checkFile(jpg_id):
                     user_input = request.form['transcription-input']
                     if user_input != "":
                         submit_edit(txt_id, jpg_id, jpg_name, user_input)
+                    return redirect(url_for("home.home_page"))
+                else:
                     return redirect(url_for("home.home_page"))
             else:
                 return redirect(url_for("home.home_page"))

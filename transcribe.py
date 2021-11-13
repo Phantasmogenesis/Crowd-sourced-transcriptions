@@ -11,17 +11,22 @@ transcribe = Blueprint("transcribe", __name__)
 def transcribe_page():
     if request.method == "POST":
         jpg_info = request.form["fileData"]
-        if jpg_info != None:
+        print(jpg_info)
+        if jpg_info != "None" and jpg_info != None:
             jpg_info = literal_eval(jpg_info)
             jpg_id = jpg_info["id"]
             jpg_name = jpg_info["name"]
             # txt_id = get_transcription_txt(jpg_name)
-        if checkFile(jpg_id):
-            if request.form.get("Submit") == "Submit":
-                user_input = request.form['transcription-input']
-                if user_input != "":
-                    create_file(jpg_id, jpg_name, user_input)
-                return redirect(url_for("home.home_page"))
+            if checkFile(jpg_id):
+                if request.form.get("Submit") == "Submit":
+                    user_input = request.form['transcription-input']
+                    if user_input != "":
+                        create_file(jpg_id, jpg_name, user_input)
+                        return redirect(url_for("home.home_page"))
+                    else:
+                        return redirect(url_for("home.home_page"))
+                else:
+                    return redirect(url_for("home.home_page"))
         else:
             return redirect(url_for("home.home_page"))
         

@@ -10,7 +10,8 @@ review = Blueprint("review", __name__)
 def review_page():
     if request.method == "POST":
         jpg_info = request.form["fileData"]
-        if jpg_info != None:
+        if jpg_info != "None" and jpg_info != None:
+            print(jpg_info)
             jpg_info = literal_eval(jpg_info)
             jpg_id = jpg_info["id"]
             jpg_name = jpg_info["name"]
@@ -31,7 +32,8 @@ def review_page():
                     return redirect(url_for("home.home_page"))
             else:
                 return redirect(url_for("home.home_page"))
-        return redirect(url_for("home.home_page"))
+        else:
+            return redirect(url_for("home.home_page"))
 
     if request.method == "GET":
         jpg_data = get_transcription()
