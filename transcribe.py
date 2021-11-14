@@ -27,6 +27,8 @@ def transcribe_page():
                         return redirect(url_for("home.home_page"))
                 else:
                     return redirect(url_for("home.home_page"))
+            else:
+                return redirect(url_for("home.home_page"))
         else:
             return redirect(url_for("home.home_page"))
         
