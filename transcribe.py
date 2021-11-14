@@ -20,7 +20,7 @@ def transcribe_page():
             if checkFile(jpg_id):
                 if request.form.get("Submit") == "Submit":
                     user_input = request.form['transcription-input']
-                    if user_input != "":
+                    if user_input != "" and checkFile(jpg_id):
                         create_file(jpg_id, jpg_name, user_input)
                         return redirect(url_for("home.home_page"))
                     else:
