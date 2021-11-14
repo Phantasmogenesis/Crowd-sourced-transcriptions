@@ -9,6 +9,10 @@ html, body {
     font-family: 'Roboto', sans-serif;
 }
 
+button {
+  font-size: 1.25vw;
+}
+
 iframe {
   transform: rotate(0deg);
 }
