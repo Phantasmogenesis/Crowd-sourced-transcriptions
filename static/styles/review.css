@@ -100,21 +100,6 @@ input[type=submit] {
   height:95%;
 }
 
-.text-container {
-  margin-top: .5%;
-  margin-left:3%;
-  display: flex;
-  height:95%;
-}
-
-.text-container .btn {
-  position: absolute;
-  top: 100%;
-  left: 100%;
-  transform: translate(-150%, -150%);
-  -ms-transform: translate(-150%, -150%);
-}
-
 #left {
   width:50%;
   margin-left: 2%;
