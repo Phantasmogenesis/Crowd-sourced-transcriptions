@@ -75,7 +75,7 @@ select {
 }
 
 input[type=submit] {
-  font-size: 1.5vw;
+  font-size: 1.25vw;
   color: black;
   background-color: transparent;
   text-decoration: none;
