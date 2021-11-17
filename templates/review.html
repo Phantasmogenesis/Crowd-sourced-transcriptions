@@ -99,11 +99,11 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
             <form style="height:100%" method="POST">
             <div id=review><!-- Rating system -->
                 <b><p style="margin:0%">Is this transcription accurate?</p></b>
-                <ul id="review" style="height:15%; margin-top:0%; display:inline-flex">
+                <ul id="review" style="height:15%; width:30%; margin-top:0%; display:inline-flex">
                     <input method="post" type="hidden" id="fileData" name="fileData" value="{{jpg_data}}" readonly/>
-                    <li style="margin-right: 5%;"><button><input type="submit" name="Yes" value="Yes"></button></li>
-                    <li style="margin-right: 5%;"><button><input type="submit" name="No" value="No"></button></li>
-                    <li style="margin-right: 5%;" type="button" name="Edit" id="edit" onclick="edit()" style="font-size: 1.5vw; "</li>
+                    <li style="margin-right: 5%;"><button name="Yes" value="Yes">Yes</button></li>
+                    <li style="margin-right: 5%;"><button name="No" value="No">No</button></li>
+                    <li style="margin-right:5%;"><button name="edit" value="edit" onclick="edit()">Edit</button></li>
                 </ul>
             </div>
             </form>
