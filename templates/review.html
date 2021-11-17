@@ -90,7 +90,7 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
         </div>
 
         <div id="right">
-            <h4 style="font-size: 1.25vw; margin:0.5%; margin-left:0%">Review this transcription.&nbsp;<div id=edit-button><button name="edit" value="edit" onclick="edit()">Edit</button></div></h4>
+            <h4 style="font-size: 1.25vw; margin:0.5%; margin-left:0%">Review this transcription.&nbsp;<div id="edit-button"><button name="edit" value="edit" onclick="edit()">Edit</button></div></h4>
             <label for="transcription"></label>
             <form style="height:100%" method="POST">
             <textarea id="transcription-input" name="transcription-row" rows="20" cols="50" placeholder="Please write the transcription here" style="height:80%" readonly=true>{{txt_content}}</textarea>
@@ -119,7 +119,7 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
                     //Change bottom list
                     document.getElementById("review").innerHTML = document.getElementById("submit").innerHTML;
                     //Swap buttons
-                    document.getElementById("review").innerHTML = document.getElementById("submit").innerHTML;
+                    document.getElementById("edit-button").innerHTML = document.getElementById("tutorial-button").innerHTML;
                 }
             </script>
         </div>
