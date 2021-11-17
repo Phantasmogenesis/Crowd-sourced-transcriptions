@@ -11,7 +11,7 @@ def review_page():
     if request.method == "POST":
         jpg_info = request.form["fileData"]
         if jpg_info != "None" and jpg_info != None:
-            print(jpg_info)
+            # print(jpg_info)
             jpg_info = literal_eval(jpg_info)
             jpg_id = jpg_info["id"]
             jpg_name = jpg_info["name"]
