@@ -19,21 +19,21 @@ def review_page():
             if request.form.get("Yes") == "Yes":
                 if checkFile(jpg_id):
                     increment_review_counter(txt_id, jpg_id)
-                    return redirect(url_for("home.home_page"))
+                    return redirect(url_for("thanks.thanks_page"))
             elif request.form.get("No") == "No":
                 if checkFile(jpg_id):
                     decrement_review_counter(txt_id, jpg_id)
-                    return redirect(url_for("home.home_page"))
+                    return redirect(url_for("thanks.thanks_page"))
             elif request.form.get("Submit") == "Submit":
                 if checkFile(jpg_id):
                     user_input = request.form['transcription-input']
                     if user_input != "":
                         submit_edit(txt_id, jpg_id, jpg_name, user_input)
-                    return redirect(url_for("home.home_page"))
+                    return redirect(url_for("thanks.thanks_page"))
             else:
-                return redirect(url_for("home.home_page"))
+                return redirect(url_for("thanks.thanks_page"))
         else:
-            return redirect(url_for("home.home_page"))
+            return redirect(url_for("thanks.thanks_page"))
 
     if request.method == "GET":
         jpg_data = get_transcription()

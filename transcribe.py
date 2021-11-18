@@ -22,16 +22,16 @@ def transcribe_page():
                     user_input = request.form['transcription-input']
                     if user_input != "" and checkFile(jpg_id) == True:
                         create_file(jpg_id, jpg_name, user_input)
-                        return redirect(url_for("home.home_page"))
+                        return redirect(url_for("thanks.thanks_page"))
                     else:
-                        return redirect(url_for("home.home_page"))
+                        return redirect(url_for("thanks.thanks_page"))
                 else:
-                    return redirect(url_for("home.home_page"))
+                    return redirect(url_for("thanks.thanks_page"))
             else:
-                return redirect(url_for("home.home_page"))
+                return redirect(url_for("thanks.thanks_page"))
         else:
-            return redirect(url_for("home.home_page"))
-        
+            return redirect(url_for("thanks.thanks_page"))
+
     if request.method == "GET":
         jpg_info = get_random_jpg()
         if jpg_info != None:
