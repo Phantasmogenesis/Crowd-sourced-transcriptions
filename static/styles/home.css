@@ -63,6 +63,11 @@ nav {
   margin-bottom:5%;
   display: flex;
 }
+.container2 {
+  margin-top: 1%;
+  margin-left:1%;
+  display: flex;
+}
 
 #left {
     width:60%;
