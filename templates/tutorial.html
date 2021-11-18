@@ -25,25 +25,22 @@
     <nav class="navbar">
         <ul>
             <li class="logo">
-                <a class="buttons" style="margin-right:30%" href="https://ww1.oswego.edu/"><img src="{{url_for('static', filename='images/oswego-green.svg')}}" class="icon" alt="SUNY Oswego Logo" ></a>
+                <a class="buttons" href="https://ww1.oswego.edu/"><img src="{{url_for('static', filename='images/oswego-green.svg')}}" class="icon" alt="SUNY Oswego Logo" ></a>
             </li>
-            <li><a class="buttons" href=https://www.legacytree.com/blog/five-tips-deciphering-old-handwriting>ResourceOne</a></li>
-            <li><a class="buttons" href=https://cfh.iaamuseum.org/9-tips-for-reading-old-handwriting/>ResourceTwo</a></li>
+            <li><a class="buttons" href={{url_for('transcribe.transcribe_page')}}>Create a Transcription</a></li>
+            <li><a class="buttons" href={{url_for('review.review_page')}}>Review a Transcription</a></li>
+            <li><a class="buttons" href=https://libraryguides.oswego.edu/fillmore>Historical Information</a></li>        </ul>
         </ul>
     </nav>
 
-    <div class="container">
-        <div id="left">
-            <h1 style="text-align:left">Tutorial Introduction</h1>
-    <p>In general, we transcribe documents as written. We retain the capitalizations, spelling, and grammar of the original. When necessary, for the sake of clarity, we may choose to amend indecipherable spelling with editorial additions, always marked in brackets. In matters of punctuation we do our best to balance the author’s original grammatical usage with modern-day readability. These guidelines are designed to show transcribers how to represent the manuscript page. These guidelines will also provide future readers of our transcriptions a better understanding of how we balanced the demands of representation, accuracy, and consistency.
+    <h1 style="text-align:center; padding:1%">Transcription Tutorial</h1>
+    <p style="margin:2%">In general, we transcribe documents <b>as written</b>. We retain the capitalizations, spelling, and grammar of the original. When necessary, for the sake of clarity, we may choose to amend indecipherable spelling with editorial additions, always marked in brackets. In matters of punctuation we do our best to balance the author’s original grammatical usage with modern-day readability. These guidelines are designed to show transcriptionists how to represent the manuscript page. These guidelines will also provide future readers of our transcriptions a better understanding of how we balanced the demands of representation, accuracy, and consistency.
     </p>
     
-    <p><b>Rules/Recommendations </b><br> 1) When writing a transcription please write it in full, there is no way to go back to it later.<br> 2) Read your transcription for content after you complete it. If your transcription does not make sense, consider whether you have mis-transcribed one or more words in a sentence.<br> 3) Try not to pass nonsense transcriptions onto your editor; the letter probably does not say “Four score and seven yarns ago.” The person who wrote these letters was literate.<br>4) When you are unsure of a word, please write the word in brackets, for example: [word]. There may be cases where a sentence contains a big space, this may indicate the use of period, if seen write [.]<br> 5) Do not attempt to reproduce inscribed nontextual material, such as drawings, diagrams, or nonstandard symbols.<br> 6) If you have a direct question for the library, please use the contact information on the Achrives and Specail Collections page. The resources above may also help.<br><b>Much luck on your trascribing journey! </b  </p>
-        </div>
+    <p style="margin:2%"><b>Rules/Recommendations: </b><br> <b>1)</b> When writing a transcription please write it in full; there is no way to go back to it later.<br> <b>2)</b> Read your transcription for content after you complete it. If your transcription does not make sense, consider whether you have mis-transcribed one or more words in a sentence.<br> <b>3)</b> Try not to pass nonsense transcriptions onto your editor; the letter probably does not say “Four score and seven yarns ago.” The person who wrote these letters was literate.<br><b>4)</b> When you are unsure of a word, please write the word in brackets; for example: [word]. There may be cases where a sentence contains a big space, this may indicate the use of period, if seen write [.]<br> <b>5)</b> Do not attempt to reproduce inscribed nontextual material, such as drawings, diagrams, or nonstandard symbols.<br> <b>6)</b> If you experience any issues or have any questions, please contact SUNY Oswego's Archives and Special Collections. The resources above may also help.<br><b>Thank you for contributing to the Millard Fillmore collection!</b  </p>
+    <p style="margin:2%">Additional resources: <a style="color:black" href=https://www.legacytree.com/blog/five-tips-deciphering-old-handwriting>ResourceOne </a><a style="color:black" href=https://cfh.iaamuseum.org/9-tips-for-reading-old-handwriting/>ResourceTwo</a>
 
-    
-    </div>
-
+    </p>
 </body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
