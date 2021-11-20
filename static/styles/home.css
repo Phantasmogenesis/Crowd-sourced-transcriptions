@@ -134,12 +134,12 @@ a:active {
 }
 
 .column {
-  flex: 25%;
+  flex: 23%;
   padding: 5px;
 }
 
 .column2 {
-  flex: 45%;
+  flex: 48%;
   padding: 5px;
 }
 
