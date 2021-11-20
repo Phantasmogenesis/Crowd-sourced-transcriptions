@@ -129,11 +129,6 @@ a:active {
   text-decoration: underline;
 }
 
-#bottom {
-  width: 100%;
-  display: flex;
-}
-
 .row {
   display: flex;
 }
