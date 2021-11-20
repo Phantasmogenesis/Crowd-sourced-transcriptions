@@ -21,7 +21,11 @@ h1 {
   font-size: 3vw;
 }
 
-p {
+.p2x {
+  font-size: 1.35vw;
+}
+
+.p1x {
   font-size: 2vw;
 }
 
