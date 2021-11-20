@@ -134,17 +134,17 @@ a:active {
 }
 
 .column {
-  flex: 23%;
+  flex: 23.25%;
   padding: 5px;
 }
 
 .column2 {
-  flex: 48%;
+  flex: 50.75%;
   padding: 5px;
 }
 
 .column3 {
-  flex: 30%;
+  flex: 26.035%;
   padding: 5px;
 }
 
