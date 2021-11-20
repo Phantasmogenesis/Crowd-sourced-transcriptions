@@ -14,7 +14,11 @@ h1 {
   margin: 0 0 -0.5em;
 }
 
-p {
+.p2x {
+  font-size: 1.35vw;
+}
+
+.p1x {
   font-size: 2vw;
 }
 
