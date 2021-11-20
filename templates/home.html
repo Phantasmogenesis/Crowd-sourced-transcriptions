@@ -86,10 +86,20 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
             <iframe src="{{jpg_link}}" id="doc" width=90% height=100%"></iframe> <!-- This will be a random JPEG -->
         </div>
     </div>
-
-    <div class="bottombanner">
-      <img id="bottom" src="{{url_for('static', filename='images/millard.jpg')}}" alt="Images of a mountain and a statue of Millard.">  
+    <div class="row">
+      <div class="column">
+        <img src="{{url_for('static', filename='images/Fillmore_Sketch.JPG')}}" alt="Photograph of Millard Fillmore." style="width:100%">
+      </div>
+      <div class="column">
+        <img src="{{url_for('static', filename='images/millardfillmorestatue.jpg')}}" alt="Photograph of statue of Millard Fillmore." style="width:100%">
+      </div>
+      <div class="column">
+        <img src="{{url_for('static', filename='Millard_Fillmore_Portrait.jpg')}}" alt="Portrait of Millard Fillmore." style="width:100%">
+      </div>
     </div>
+    <!--<div class="bottombanner">
+      <img id="bottom" src="{{url_for('static', filename='images/millard.jpg')}}" alt="Images of a mountain and a statue of Millard.">  
+    </div>-->
 
 </body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
