@@ -36,9 +36,17 @@
     <h1 style="text-align:center; padding:1%">Thank you!</h1>
     <p style="text-align:center;">By contributing to a transcription, you help to provide the public with opportunities to read and understand searchable text alongside the original written words, leading to a more open research environment for all.</p>
     <p style="text-align:center;"><a style="text-align:center; color:black;" href={{url_for('home.home_page')}}>Click here to return to the home page!</a></pp>
-    <div class="bottombanner">
-        <img id="bottom" src="{{url_for('static', filename='images/millard.jpg')}}" alt="Images of a mountain and a statue of Millard.">  
-    </div>
+    <div class="row" style="background-color: hsla(120, 30%, 0%, 0.51)">
+        <div class="column">
+          <img src="{{url_for('static', filename='images/Fillmore_Sketch.JPG')}}" alt="Photograph of Millard Fillmore." style="width:100%">
+        </div>
+        <div class="column2">
+          <img src="{{url_for('static', filename='images/millardfillmorestatue.jpg')}}" alt="Photograph of statue of Millard Fillmore." style="width:100%">
+        </div>
+        <div class="column3">
+          <img src="{{url_for('static', filename='images/Millard_Fillmore_Portrait.jpg')}}" alt="Portrait of Millard Fillmore." style="width:100%">
+        </div>
+      </div>
 </body>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript">
