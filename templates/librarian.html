@@ -32,18 +32,22 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
 }
 
 .fa-facebook {
+  background: #3B5998;
   color: white;
 }
 
 .fa-twitter {
+  background: #55ACEE;
   color: white;
 }
 
 .fa-youtube {
+  background: #bb0000;
   color: white;
 }
 
 .fa-instagram {
+  background: #125688;
   color: white;
 }
     </style>
@@ -86,35 +90,34 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
         </div>
 
         <div id="right">
-            <h4 style="margin:0.5%; margin-left:0%">Review this transcription.</h4>
+            <h4 style="font-size: 1.25vw; margin:0.5%; margin-left:0%">Review this transcription.&nbsp;<div id="edit-button" style="display: inline;"><button name="edit" value="edit" onclick="edit()">Edit</button></div></h4>
             <label for="transcription"></label>
-            <form method="POST">
-                <input method="post" type="hidden" id="fileData" name="fileData" value="{{jpg_data}}" readonly/>
-                <textarea id="transcription-input" name="transcription-input" rows="20" cols="50" placeholder="Please write the transcription here" style="height:80%" readonly=true>{{txt_content}}</textarea>
-                <div id=review><!-- Rating system -->
-                    <b><p style="margin:0%">Is this transcription accurate?</p></b>
-                    <ul id="review" style="height:15%; margin-top:0%; display:inline-flex">
-                        <li style="margin-right: 5%;"><input type="submit" name="Yes" value="Yes">&nbsp</li>
-                        <li style="margin-right: 5%;"><input type="submit" name="No" value="No">&nbsp</li>
-                        <li><a id="edit" onclick="edit()">&nbsp&nbspEdit&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a></li>
-                    </ul>
-                </div>
-            </form>
+            <form style="height:100%" method="POST">
+            <textarea id="transcription-input" name="transcription-input" rows="20" cols="50" placeholder="Please write the transcription here" style="height:80%" readonly=true>{{txt_content}}</textarea>
+            <div id=review><!-- Rating system -->
+                <b><p style="margin:0%">Is this transcription accurate?</p></b>
+                <ul id="review" style="height:15%; width:30%; margin-top:0%; display:inline-flex">
+                    <input method="post" type="hidden" id="fileData" name="fileData" value="{{jpg_data}}" readonly/>
+                    <li style="margin-right: 5%;"><button name="Yes" value="Yes">Yes</button></li>
+                    <li style="margin-right: 5%;"><button name="No" value="No">No</button></li>
+                </ul>
+            </div>
             <div id=submit style="display:none"><!-- Submission system -->
                 <ul id="submit" style="height:15%; margin-top:3%">
-                    <form method="POST">
                         <input method="post" type="hidden" id="fileData" name="fileData" value="{{jpg_data}}" readonly/>
-                        <li><a id="edit" class="two" target="_blank" href={{url_for('tutorial.tutorial_page')}}>&nbspTutorial&nbsp</a></li>
-                        <li><input type="submit" name="Submit" value="Submit" style="margin-right:1%"></li>
+                        <li><button name="Submit" value="Submit">Submit</button></li>
                     </form>
                 </ul>
             </div>
+            <div id="tutorial-button" style="display: none;"><a class="edit" target="_blank" href={{url_for('tutorial.tutorial_page')}}><button>Tutorial</button></a></div>
             <script>
                 function edit() {
                     //Make text box editable
                     document.getElementById("transcription-input").removeAttribute("readonly");
                     //Change bottom list
                     document.getElementById("review").innerHTML = document.getElementById("submit").innerHTML;
+                    //Swap buttons
+                    document.getElementById("edit-button").innerHTML = document.getElementById("tutorial-button").innerHTML;
                 }
             </script>
         </div>
@@ -137,7 +140,7 @@ a.fa:hover {color:#ADD8E6; opacity: 0.7;
 <footer id=footer>
     <img class="icon" src="{{url_for('static', filename='images/oswego-green.svg')}}" alt="SUNY Oswego Logo">
     <h1 style="font-size: 25px">Contact Information:</h1>
-    <p><a href="https://www.oswego.edu/library/archives-special-collections">SUNY Oswego Archives and Special Collections</a></p>
+    <p style="font-size: 1.35vw;"><a href="https://www.oswego.edu/library/archives-special-collections">SUNY Oswego Archives and Special Collections</a></p>
     <a href="https://www.facebook.com/SUNYOswego/" class="fa fa-facebook"></a>
     <a href="https://www.instagram.com/sunyoswego/" class="fa fa-instagram"></a>
     <a href="https://twitter.com/sunyoswego" class="fa fa-twitter"></a>
