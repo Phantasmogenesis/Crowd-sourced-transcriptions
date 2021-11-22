@@ -1,10 +1,10 @@
 from flask import Blueprint, render_template, request, redirect
 
-citations = Blueprint("citations", __name__)
+citation = Blueprint("citation", __name__)
 
-@citations.route("/citations", methods=['POST', 'GET'])
+@citation.route("/citations", methods=['POST', 'GET'])
 
-def citations_page():
+def citation_page():
     if request.method == "GET":
         render_template("citation.html")
 
