@@ -6,5 +6,5 @@ citations = Blueprint("citations", __name__)
 
 def citations_page():
     if request.method == "GET":
-        render_template("citations.html")
+        render_template("citation.html")
 
