@@ -1815,13 +1815,3 @@ venv/share/python-wheels/urllib3-1.25.8-py2.py3-none-any.whl
 venv/share/python-wheels/webencodings-0.5.1-py2.py3-none-any.whl
 venv/share/python-wheels/wheel-0.34.2-py2.py3-none-any.whl
 .gitignore
-App.py
-credentials.json
-drive_functions.py
-drive_functions.py
-google_drive.py
-librarian_functions.py
-review_functions.py
-transcription_functions.py
-transcription_functions.py
-transcription_functions.py
