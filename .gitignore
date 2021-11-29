@@ -1820,3 +1820,4 @@ credentials.json
 drive_functions.py
 drive_functions.py
 google_drive.py
+librarian_functions.py
