@@ -1822,3 +1822,4 @@ drive_functions.py
 google_drive.py
 librarian_functions.py
 review_functions.py
+transcription_functions.py
